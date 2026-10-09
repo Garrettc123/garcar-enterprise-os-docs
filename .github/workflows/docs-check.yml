@@ -1,0 +1,12 @@
+name: docs-check
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: require evidence file
+        run: test -f offers/evidence-rules.md && test -f audit/phase-0-truth.md
